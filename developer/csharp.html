@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# & .NET Geliştirme - Developer Ahmet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; background-color: #0b0f19; color: #c9d1d9; }
+        .navbar { background-color: #0d1117 !important; border-bottom: 2px solid #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
+        .navbar-brand { color: #00d2ff !important; font-weight: 600; }
+        .nav-link { color: #8b949e !important; transition: 0.3s; }
+        .nav-link:hover { color: #00d2ff !important; text-shadow: 0 0 8px rgba(0, 210, 255, 0.6); }
+        footer { background-color: #0d1117; border-top: 1px solid #21262d; color: #8b949e; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">⚡ DEVELOPER AHMET</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notes.html">Günlük</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="p-5 mb-4 rounded-3" style="background: linear-gradient(135deg, #0d1117 0%, #0a2540 100%); border-left: 5px solid #00d2ff; box-shadow: 0 0 20px rgba(0, 210, 255, 0.1);">
+            <h1 class="display-5 fw-bold text-info mb-2" style="text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);"># C# & .NET Geliştirme</h1>
+            <p class="fs-5 text-white mb-0">Kurumsal mimariler, arka plan servislerimd ve modern backend dünyası.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="p-4 rounded-3 mb-4" style="background-color: #0d1117; border: 1px solid #21262d;">
+                    <h3 class="text-white mb-3">Modern Backend Mimarisinde Standartlar</h3>
+                    <p class="text-white">
+                        Günümüz kurumsal yazılım dünyasında sürdürülebilir kod yazmak, projenin ömrünü belirleyen en kritik unsurdur. Özellikle .NET dünyasında, katmanlı mimariler (N-Tier Architecture) ve bağımlılıkların yönetimi (Dependency Injection) büyük bir önem arz eder.
+                    </p>
+                    <p class="text-white">
+                        İş mantığını (Business Logic) veri erişim katmanından (Data Access) tamamen soyutlayarak, gevşek bağlı (loosely coupled) sistemler inşa etmek, backend servislerinin esnekliğini maksimuma çıkarır.
+                    </p>
+                    
+                    <div class="p-3 my-4 rounded-3" style="background-color: #161b22; border-left: 3px solid #ffd43b;">
+                        <span class="fw-bold" style="color: #ffd43b;">Developer Notu:</span>
+                        <span class="text-white">Şifreleme işlemlerinde ve kullanıcı güvenliğinde her zaman en güncel hashing algoritmalarını kullanmak ve veritabanı işlemlerini Unit of Work paternleri ile tek bir transaction üzerinden yönetmek sistem bütünlüğünü korur.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="p-4 rounded-3 sticky-top" style="background-color: #0d1117; border: 1px solid #21262d; top: 20px;">
+                    <h4 class="text-info mb-3">📌 Yol Haritası</h4>
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2">🔹 Nesne Yönelimli Programlama (OOP)</li>
+                        <li class="mb-2">🔹 ASP.NET Core Web API Tasarımı</li>
+                        <li class="mb-2">🔹 N-Tier Backend Mimarisi</li>
+                        <li class="mb-2">🔹 Veritabanı Güvenliği & Kriptografi</li>
+                    </ul>
+                    <hr style="border-color: #21262d;">
+                    <a href="../index.html" class="btn btn-outline-secondary w-100 text-white">⬅️ Ana Sayfaya Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Developer Ahmet - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

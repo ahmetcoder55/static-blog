@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geliştirici Günlüğü & Düşünceler - Developer Ahmet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; background-color: #0b0f19; color: #c9d1d9; }
+        .navbar { background-color: #0d1117 !important; border-bottom: 2px solid #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
+        .navbar-brand { color: #00d2ff !important; font-weight: 600; }
+        .nav-link { color: #8b949e !important; transition: 0.3s; }
+        .nav-link:hover { color: #00d2ff !important; text-shadow: 0 0 8px rgba(0, 210, 255, 0.6); }
+        footer { background-color: #0d1117; border-top: 1px solid #21262d; color: #8b949e; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">⚡ DEVELOPER AHMET</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notes.html">Günlük</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="p-5 mb-4 rounded-3" style="background: linear-gradient(135deg, #0d1117 0%, #1c212c 100%); border-left: 5px solid #e1e4e8; box-shadow: 0 0 20px rgba(225, 228, 232, 0.1);">
+            <h1 class="display-5 fw-bold text-white mb-2" style="text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);"># Geliştirici Günlüğü & Düşünceler</h1>
+            <p class="fs-5 text-white mb-3">Teknoloji, yazılım mimarileri ve sisteme dair şahsi notlar ile gelecek vizyonu.</p>
+            <hr style="border-color: #21262d;" class="my-3">
+            <div class="d-flex flex-wrap gap-2 pt-1">
+                <span class="text-white d-flex align-items-center me-2 small">📌 Hızlı Erişim:</span>
+                <a href="#mimari" class="btn btn-sm btn-outline-info" style="font-size: 0.8rem; border-color: rgba(0, 210, 255, 0.4);"># Mimari ve Esneklik</a>
+                <a href="#yapay-zeka" class="btn btn-sm btn-outline-primary" style="font-size: 0.8rem; border-color: rgba(189, 147, 249, 0.4); color: #bd93f9;"># Yapay Zeka & Sektör</a>
+                <a href="#sistem" class="btn btn-sm btn-outline-warning" style="font-size: 0.8rem; border-color: rgba(255, 212, 59, 0.4); color: #ffd43b;"># Sistem Programlama</a>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div id="mimari" class="p-4 rounded-3 mb-4" style="background-color: #0d1117; border: 1px solid #21262d; scroll-margin-top: 20px;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-info mb-0">🚀 Yazılım Geliştirmede Katı Kurallar ve Esneklik</h4>
+                        <small class="text-white">14 Haziran 2026</small>
+                    </div>
+                    <p class="text-white">
+                        Kendi projelerimi (Kurucuk Software ekosistemini) geliştirirken fark ettim ki, bir yazılımcının en büyük dostu esnek tasarlanmış mimarilerdir. Kod yazarken acele etmek yerine, klasör yapısını ve Dependency Injection gibi yapı taşlarını en baştan sıkı tutmak, projeyi gelecekte spagetti kod yığınından kurtarıyor.
+                    </p>
+                </div>
+
+                <div id="yapay-zeka" class="p-4 rounded-3 mb-4" style="background-color: #0d1117; border: 1px solid #21262d; scroll-margin-top: 20px;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-info mb-0" style="color: #bd93f9 !important;">🚀 Yazılım Sektörü İş Yapar Mı?</h4>
+                        <small class="text-white">15 Haziran 2026</small>
+                    </div>
+                    <p class="text-white">Yazılım bence asla sona ermez. Çünkü insanlar her zaman yapay zekaya ihtiyaç duyar ve bu ihtiyaç fazlalığı yüzünden çeşitli sorunlar doğuracaktır. Uzun lafın kısası Yapay Zeka Kendi Kendini <strong>GÜNCELLEMEYİ</strong> bilmez.</p>
+                    <p class="text-white">Tabikide yapay zeka kendini <strong>GÜNCELLEYEMEDİĞİ</strong> için yazılımcılar her zaman var olacaklar. Kısacası Yapay Zeka Yüzünden Yazılımcılar işinden olmaz ama Yapay Zekayı Etkin Kullanabilen Yazılımcı Her zaman diğer yazılımcılardan bir adım üstte olur.</p>
+                </div>
+
+                <div id="sistem" class="p-4 rounded-3 mb-4" style="background-color: #0d1117; border: 1px solid #21262d; scroll-margin-top: 20px;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-white mb-0" style="color: #ffd43b !important;">🐧 Sistem Programlama ve Özgürlük Üzerine</h4>
+                        <small class="text-white">14 Haziran 2026</small>
+                    </div>
+                    <p class="text-white">
+                        İşletim sistemlerinin en alt katmanına inmek, Assembly ile register seviyesinde oynamak veya Linux terminalinde log analizi yapmak, bir geliştiriciye donanım üzerinde gerçek bir hakimiyet hissi veriyor. Kurucuk OS üzerinde çalışırken edindiğim her tecrübe, üst seviye dillerde yazdığım kodların mantığını daha iyi kavramamı sağlıyor.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="p-4 rounded-3 sticky-top" style="background-color: #0d1117; border: 1px solid #21262d; top: 20px;">
+                    <h4 class="text-white mb-3" style="text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);">✍️ Hakkımda</h4>
+                    <p class="text-white small">
+                        Bu alanda, teknoloji dünyasındaki standartları sıfırdan bir kenara bırakmadan inşa ederken aldığım şahsi notları, karşılaştığım mantıksal hataları ve ürettiğim çözümleri paylaşıyorum.
+                    </p>
+                    <hr style="border-color: #21262d;">
+                    <a href="../index.html" class="btn btn-outline-secondary w-100 text-white">⬅️ Ana Sayfaya Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Developer Ahmet - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

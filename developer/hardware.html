@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bir Bilgisayar Nasıl Çalışır? - Developer Ahmet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; background-color: #0b0f19; color: #c9d1d9; }
+        .navbar { background-color: #0d1117 !important; border-bottom: 2px solid #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
+        .navbar-brand { color: #00d2ff !important; font-weight: 600; }
+        .nav-link { color: #8b949e !important; transition: 0.3s; }
+        .nav-link:hover { color: #00d2ff !important; text-shadow: 0 0 8px rgba(0, 210, 255, 0.6); }
+        footer { background-color: #0d1117; border-top: 1px solid #21262d; color: #8b949e; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">⚡ DEVELOPER AHMET</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notes.html">Günlük</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="p-5 mb-4 rounded-3" style="background: linear-gradient(135deg, #0d1117 0%, #1a1e29 100%); border-left: 5px solid #00d2ff; box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);">
+            <h1 class="display-5 fw-bold mb-2" style="color: #00d2ff; text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);"># Bir Bilgisayar Nasıl Çalışır?</h1>
+            <p class="fs-5 text-white mb-3">Elektron akışından mantık kapılarına, Assembly register'larından işletim sistemi çekirdeğine derinlemesine mimari analiz.</p>
+            
+            <hr style="border-color: #21262d;" class="my-3">
+
+            <div class="d-flex flex-wrap gap-2 pt-1">
+                <span class="text-white d-flex align-items-center me-2 small">📌 Makale Katmanları:</span>
+                <a href="#donanim-kalbi" class="btn btn-sm btn-outline-info" style="font-size: 0.8rem; border-color: rgba(0, 210, 255, 0.4);"># 1. Donanımın Kalbi</a>
+                <a href="#fetches-execute" class="btn btn-sm btn-outline-warning" style="font-size: 0.8rem; border-color: rgba(255, 212, 59, 0.4); color: #ffd43b;"># 2. Döngü Mekanizması</a>
+                <a href="#boot-prosesi" class="btn btn-sm btn-outline-danger" style="font-size: 0.8rem; border-color: rgba(255, 74, 74, 0.4); color: #ff4a4a;"># 3. Boot Senfonisi</a>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                
+                <div id="donanim-kalbi" class="p-4 rounded-3 mb-4" style="background-color: #0d1117; border: 1px solid #21262d; scroll-margin-top: 20px;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-info mb-0">⚡ 1. Silikonun Dili: Elektronlar ve Mantık Kapıları</h4>
+                        <small class="text-white">25 Haziran 2026</small>
+                    </div>
+                    <p class="text-white">
+                        En üst katmanda yazdığımız modern C# kodları veya Python scriptleri, işlemci seviyesine indiğinde anlamını yitirir. Bilgisayarın özü, milyarlarca mikroskobik anahtardan (transistör) oluşan devasa bir silikon vadisidir. Bu transistörler ya elektriği geçirir <strong>(1)</strong> ya da keser <strong>(0)</strong>.
+                    </p>
+                    <p class="text-white">
+                        Bu 1 ve 0'lar; AND (VE), OR (VEYA), NOT (DEĞİL) gibi <strong>Mantık Kapılarını (Logic Gates)</strong> oluşturur. Mantık kapıları bir araya gelerek matematiksel işlemleri yapan ALU (Aritmetik Mantık Birimi) ve verileri geçici olarak hafızada tutan hücreleri (Flip-Flop'ları ve nihayetinde RAM/Register yapılarını) inşa eder. Kısacası bilgisayar, elektrik akımının yönlendirilmesiyle matematik yapan devasa bir hesap makinesidir.
+                    </p>
+                </div>
+
+                <div id="fetches-execute" class="p-4 rounded-3 mb-4" style="background-color: #0d1117; border: 1px solid #21262d; scroll-margin-top: 20px;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="mb-0" style="color: #ffd43b !important;">⚙️ 2. CPU'nun Kutsal Döngüsü: Fetch - Decode - Execute</h4>
+                        <small class="text-white">Donanım Mimarisi</small>
+                    </div>
+                    <p class="text-white">
+                        Bir işlemci (CPU), milyarlarca işlemi tek bir saniyede nasıl hatasız yapar? Yanıt, anakart üzerindeki kristal osilatörün ürettiği <strong>Saat Sinyalinde (Clock Speed - GHz)</strong> gizlidir. Her saat vuruşunda işlemci şu 3 aşamalı döngüyü (Instruction Cycle) çalıştırır:
+                    </p>
+                    <ul>
+                        <li class="text-white mb-2"><strong class="text-warning">Fetch (Getir):</strong> CPU, sıradaki komutun RAM'deki adresini tutan <code>Program Counter (PC)</code> register'ına bakar. O adresteki komutu alır ve kendi içine getirir.</li>
+                        <li class="text-white mb-2"><strong class="text-warning">Decode (Çöz):</strong> Kontrol birimi, gelen bu 0 ve 1 yığınını (Opcode) analiz eder. "Bu bir toplama işlemi mi, yoksa diske yazma emri mi?" sorusunun yanıtını bulur.</li>
+                        <li class="text-white mb-2"><strong class="text-warning">Execute (Çalıştır):</strong> İşlem netleşince ALU veya ilgili birim devreye girer. Register'lardaki (EAX, EBX vb.) veriler işlenir og sonuç tekrar hafızaya yazılır.</li>
+                    </ul>
+                </div>
+
+                <div id="boot-prosesi" class="p-4 rounded-3 mb-4" style="background-color: #0d1117; border: 1px solid #21262d; scroll-margin-top: 20px;">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="mb-0" style="color: #ff4a4a !important;">🚀 3. Büyük Patlama: Güç Tuşuna Basıldığı An</h4>
+                        <small class="text-muted">Bootloader Seviyesi</small>
+                    </div>
+                    <p class="text-white">
+                        Sistem kapalıyken RAM bomboştur. Peki güç tuşuna basıldığında bilgisayar ne yapacağını nereden bilir? İşte o an <strong>Boot Senfonisi</strong> başlar:
+                    </p>
+                    <ol>
+                        <li class="text-white mb-2">Güç kaynağı voltajı dengeler ve CPU'ya bir "Reset" sinyali gönderir. CPU, fabrikasyon olarak kodlanmış sabit bir ROM adresine (BIOS/UEFI) zıplar.</li>
+                        <li class="text-white mb-2">BIOS, donanımları test etmek için <code>POST (Power-On Self-Test)</code> işlemini başlatır. Ekran kartı, RAM og diskler taranır.</li>
+                        <li class="text-white mb-2">Test başarılıysa BIOS, diskin ilk sektöründeki (MBR/GPT) 512 baytlık o kritik alana gider ve <code>Bootloader</code> kodunu RAM'e yükler.</li>
+                        <li class="text-white mb-2">Bootloader işlemciyi 16-bit Gerçek Moddan (Real Mode) 32-bit veya 64-bit Korumalı Moda (Protected Mode) geçirir ve işletim sisteminin kernel'ını (çekirdeğini) RAM'e şak diye enjekte eder. Kontrol artık tamamen yazılımdadır!</li>
+                    </ol>
+
+                    <div class="p-3 my-3 rounded-3" style="background-color: #111a2e; border-left: 3px solid #00d2ff;">
+                        <span class="fw-bold text-info"> Mimari Özeti:</span>
+                        <span class="text-white small">Donanım yazılımı var eder, yazılım ise donanımı yönetir. Kod yazarken RAM optimizasyonuna ve CPU döngülerine dikkat etmek, silikon vadisindeki elektronlara saygı duruşudur.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="p-4 rounded-3 sticky-top" style="background-color: #0d1117; border: 1px solid #21262d; top: 20px;">
+                    <h4 class="text-white mb-3" style="text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);">✍️ Analiz Merkezi</h4>
+                    <p class="text-white small">
+                        Bu makalede donanım katmanını anlamak ve daha performanslı çekirdekler (kernel) kodlamak adına çıkardığımız temel çalışma prensipleri derlenmiştir.
+                    </p>
+                    <hr style="border-color: #21262d;">
+                    <a href="../index.html" class="btn btn-outline-secondary w-100 text-white">⬅️ Ana Sayfaya Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Developer Ahmet - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
