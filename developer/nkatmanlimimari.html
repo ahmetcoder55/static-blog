@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Developer backend günlükleri. C# ve .NET dünyasında N-Layer (Çok Katmanlı) mimarinin temellerini, katmanların görevlerini temiz ve anlaşılır şekilde öğrenin.">
+    <title>N-Katmanlı Mimari Nedir? - Developer Ahmet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">⚡ DEVELOPER AHMET</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../developer/notes.html">Günlük</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../developer/nkatmanlimimari.html">Blog</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5 flex-grow-1">
+
+        <div class="pb-4 mb-4 border-bottom">
+            <h1 class="display-5 fw-bold text-dark"># N-Tier Architecture</h1>
+            <p class="text-muted mb-0">📅 4 Temmuz 2026 | ✍️ Yazar: Ahmet</p>
+            <img src="static/nkatmanli.png" alt="Windows Sertifika Hatası Görseli" class="img-fluid rounded shadow-sm mb-4" style="max-height: 250px; width: 100%; object-fit: cover;">
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="blog-content">
+                    <h3 class="text-dark mb-3 fw-semibold">N-Tier Architecure Nedir?</h3>
+                    <div class="mt-4">
+                        <div class="mb-5">
+                            <h4 class="text-primary fw-bold">1. Presentation Layer (Sunum / UI Katmanı)</h4>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><strong>📌 Nedir:</strong> Kullanıcının siteyle veya
+                                    uygulamayla doğrudan etkileşime girdiği en dış katmandır.</li>
+                                <li class="list-group-item"><strong>⚙️ Ne Yapar:</strong> Gelen istekleri (HTTP Request)
+                                    karşılar, backend'den gelen verileri kullanıcıya gösterir.</li>
+                                <li class="list-group-item bg-light text-dark"><strong>💻 Örnek:</strong> ASP.NET Core
+                                    MVC (Controller ve View yapıları), Web API (Controller'lar) veya Angular/React gibi
+                                    ön yüz projeleri bu katmanda yer alır.</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <h4 class="text-success fw-bold">2. Business Logic Layer (BLL / İş Mantığı Katmanı)</h4>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><strong>📌 Nedir:</strong> Uygulamanın "beyni" olan, tüm
+                                    kuralların ve mantıksal hesaplamaların döndüğü katmandır.</li>
+                                <li class="list-group-item"><strong>⚙️ Ne Yapar:</strong> Sunum katmanından gelen
+                                    verileri kontrol eder (Validation), iş kurallarını uygular ve her şey yolundaysa
+                                    veri katmanına gönderir.</li>
+                                <li class="list-group-item bg-light text-dark"><strong>💻 Örnek:</strong> <em>"Eğer
+                                        kullanıcının yaşı 18'den küçükse kayıt etme"</em> veya <em>"Stokta ürün
+                                        kalmadıysa siparişi iptal et"</em> gibi operasyonlar tamamen bu katmandaki
+                                    servislerde (Manager sınıflarında) yazılır.</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <h4 class="text-danger fw-bold">3. Data Access Layer (DAL / Veri Erişim Katmanı)</h4>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><strong>📌 Nedir:</strong> Veri tabanı (Database) ile
+                                    doğrudan konuşan, veri alıp verme işlerine bakan katmandır.</li>
+                                <li class="list-group-item"><strong>⚙️ Ne Yapar:</strong> Veri tabanına bağlanır; veri
+                                    ekleme (Insert), silme (Delete), güncelleme (Update) ve listeleme (Select)
+                                    işlemlerini yürütür.</li>
+                                <li class="list-group-item bg-light text-dark"><strong>💻 Örnek:</strong> Entity
+                                    Framework Core, Dapper, Repository Pattern ve Unit of Work yapıları ile DbContext
+                                    sınıfları tamamen bu katmanda yaşar.</li>
+                            </ul>
+                        </div>
+                        <div class="mb-5">
+                            <h4 class="text-warning text-dark fw-bold">4. Core / Entities Layer (Çekirdek Katman)</h4>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><strong>📌 Nedir:</strong> Projedeki diğer tüm katmanların
+                                    ortaklaşa kullandığı, uygulamanın veri modellerini (nesnelerini) barındıran merkez
+                                    katmandır.</li>
+                                <li class="list-group-item"><strong>⚙️ Ne Yapar:</strong> Veri tabanındaki tabloların
+                                    kod tarafındaki karşılıkları olan sınıfları (Entity) ve ortak yardımcı araçları
+                                    (Core Utilities) tutar. Diğer katmanlar bu katmanı referans alır.</li>
+                                <li class="list-group-item bg-light text-dark"><strong>💻 Örnek:</strong> Product, User,
+                                    Category gibi düz C# sınıfları bu katmanda yer alır.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="p-4 rounded-3 card-custom sticky-top" style="top: 20px;">
+                    <h4 class="text-dark mb-3 fw-bold">📌 Detaylar</h4>
+                    <p class="text-secondary small mb-1"><strong>Oluşturulma:</strong>4 Temmuz 2026</p>
+                    <p class="text-secondary small mb-3"><strong>Kategori:</strong>Yazılım Mimarileri</p>
+                    <hr>
+                    <a href="../index.html" class="btn btn-dark w-100">⬅️ Ana Sayfaya Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center py-4 bg-light border-top">
+        <div class="container">
+            <p class="mb-0 text-secondary">&copy; 2026 Developer Ahmet - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

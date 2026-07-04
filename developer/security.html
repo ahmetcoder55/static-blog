@@ -1,20 +1,49 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siber Güvenlik Temelleri - Developer Ahmet</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'JetBrains Mono', monospace; background-color: #0b0f19; color: #c9d1d9; }
-        .navbar { background-color: #0d1117 !important; border-bottom: 2px solid #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
-        .navbar-brand { color: #00d2ff !important; font-weight: 600; }
-        .nav-link { color: #8b949e !important; transition: 0.3s; }
-        .nav-link:hover { color: #00d2ff !important; text-shadow: 0 0 8px rgba(0, 210, 255, 0.6); }
-        footer { background-color: #0d1117; border-top: 1px solid #21262d; color: #8b949e; }
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #0b0f19;
+            color: #c9d1d9;
+        }
+
+        .navbar {
+            background-color: #0d1117 !important;
+            border-bottom: 2px solid #00d2ff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .navbar-brand {
+            color: #00d2ff !important;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            color: #8b949e !important;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #00d2ff !important;
+            text-shadow: 0 0 8px rgba(0, 210, 255, 0.6);
+        }
+
+        footer {
+            background-color: #0d1117;
+            border-top: 1px solid #21262d;
+            color: #8b949e;
+        }
     </style>
 </head>
+
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
@@ -25,15 +54,20 @@
                     <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
                     <li class="nav-item"><a class="nav-link" href="../about.html">Hakkımızda</a></li>
                     <li class="nav-item"><a class="nav-link" href="notes.html">Günlük</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nkatmanlimimari.html">Blog</a></li>
+
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container my-5">
-        <div class="p-5 mb-4 rounded-3" style="background: linear-gradient(135deg, #0d1117 0%, #1e1233 100%); border-left: 5px solid #bd93f9; box-shadow: 0 0 20px rgba(189, 147, 249, 0.1);">
-            <h1 class="display-5 fw-bold mb-2" style="color: #bd93f9; text-shadow: 0 0 10px rgba(189, 147, 249, 0.4);"># Siber Güvenlik Temelleri</h1>
-            <p class="fs-5 text-white mb-0">Sistem bütünlüğü koruma, güvenli kod geliştirme standartları ve siber defans.</p>
+        <div class="p-5 mb-4 rounded-3"
+            style="background: linear-gradient(135deg, #0d1117 0%, #1e1233 100%); border-left: 5px solid #bd93f9; box-shadow: 0 0 20px rgba(189, 147, 249, 0.1);">
+            <h1 class="display-5 fw-bold mb-2" style="color: #bd93f9; text-shadow: 0 0 10px rgba(189, 147, 249, 0.4);">#
+                Siber Güvenlik Temelleri</h1>
+            <p class="fs-5 text-white mb-0">Sistem bütünlüğü koruma, güvenli kod geliştirme standartları ve siber
+                defans.</p>
         </div>
 
         <div class="row g-4">
@@ -41,31 +75,50 @@
                 <div class="p-4 rounded-3 mb-4" style="background-color: #0d1117; border: 1px solid #21262d;">
                     <h3 class="text-white mb-3">Defansif Güvenlik ve Kod Güvenliği</h3>
                     <p class="text-white">
-                        Bir sistemi sıfırdan inşa etmek ne kadar büyük bir başarıysa, o sistemin dışarıdan gelecek tehditlere karşı bütünlüğünü korumak da o kadar kritik bir zorunluluktur. Siber güvenlik, bir proje bittikten sonra üzerine eklenen bir yama değil; mimarinin ilk satır kodu yazılırken başlanması gereken dinamik bir süreçtir.
+                        Bir sistemi sıfırdan inşa etmek ne kadar büyük bir başarıysa, o sistemin dışarıdan gelecek
+                        tehditlere karşı bütünlüğünü korumak da o kadar kritik bir zorunluluktur. Siber güvenlik, bir
+                        proje bittikten sonra üzerine eklenen bir yama değil; mimarinin ilk satır kodu yazılırken
+                        başlanması gereken dinamik bir süreçtir.
                     </p>
                     <p class="text-white">
-                        Modern dünyada siber defans, sadece ağ trafiğini izlemekten ibaret değildir. Güvenli Yazılım Geliştirme Yaşam Döngüsü (SSDLC) prensiplerini bilmek, girdi doğrulamalarını (input validation) sıkı tutmak ve sistem süreçlerini manipüle etmeye çalışan harici sızma girişimlerini engelleyecek algoritmalar kurmak gerekir.
+                        Modern dünyada siber defans, sadece ağ trafiğini izlemekten ibaret değildir. Güvenli Yazılım
+                        Geliştirme Yaşam Döngüsü (SSDLC) prensiplerini bilmek, girdi doğrulamalarını (input validation)
+                        sıkı tutmak ve sistem süreçlerini manipüle etmeye çalışan harici sızma girişimlerini
+                        engelleyecek algoritmalar kurmak gerekir.
                     </p>
 
                     <h4 class="text-white mt-4 mb-3">🛡️ Sistem ve Uygulama Güvenliğinin Yapı Taşları</h4>
                     <p class="text-white">
-                        Geliştirdiğimiz platformlarda veya yönettiğimiz işletim sistemlerinde güvenliği en üst düzeyde tutmak için şu kurallardan asla taviz vermeyiz:
+                        Geliştirdiğimiz platformlarda veya yönettiğimiz işletim sistemlerinde güvenliği en üst düzeyde
+                        tutmak için şu kurallardan asla taviz vermeyiz:
                     </p>
                     <ul class="text-white">
-                        <li class="mb-2"><strong style="color: #bd93f9;">Veri Kriptografisi:</strong> Kullanıcı şifreleri asla veritabanına düz metin (plain-text) olarak kaydedilmez. Her zaman güçlü tuzlama (salting) ve hashing mekanizmalarıyla (Örn: SHA-256 veya BCrypt) geri döndürülemeyecek şekilde şifrelenmelidir.</li>
-                        <li class="mb-2"><strong style="color: #bd93f9;">Zararlı Yazılım ve DLL Analizi:</strong> Sisteme dahil edilecek üçüncü parti kütüphanelerin, DLL dosyalarının veya VS Code eklentilerinin dijital imzaları, kaynakları ve arka plandaki süreç (process) etkileşimleri her zaman titizlikle kontrol edilmelidir. Baş kaynağı belirsiz yapılar sisteme yaklaştırılmamalıdır.</li>
-                        <li class="mb-2"><strong style="color: #bd93f9;">Zafiyet Yönetimi:</strong> Web uygulamalarında SQL Injection, XSS ve kırık yetkilendirme gibi en yaygın OWASP Top 10 açıklarına karşı rota korumaları ve filtreleme katmanları en baştan örülmelidir.</li>
+                        <li class="mb-2"><strong style="color: #bd93f9;">Veri Kriptografisi:</strong> Kullanıcı
+                            şifreleri asla veritabanına düz metin (plain-text) olarak kaydedilmez. Her zaman güçlü
+                            tuzlama (salting) ve hashing mekanizmalarıyla (Örn: SHA-256 veya BCrypt) geri
+                            döndürülemeyecek şekilde şifrelenmelidir.</li>
+                        <li class="mb-2"><strong style="color: #bd93f9;">Zararlı Yazılım ve DLL Analizi:</strong>
+                            Sisteme dahil edilecek üçüncü parti kütüphanelerin, DLL dosyalarının veya VS Code
+                            eklentilerinin dijital imzaları, kaynakları ve arka plandaki süreç (process) etkileşimleri
+                            her zaman titizlikle kontrol edilmelidir. Baş kaynağı belirsiz yapılar sisteme
+                            yaklaştırılmamalıdır.</li>
+                        <li class="mb-2"><strong style="color: #bd93f9;">Zafiyet Yönetimi:</strong> Web uygulamalarında
+                            SQL Injection, XSS ve kırık yetkilendirme gibi en yaygın OWASP Top 10 açıklarına karşı rota
+                            korumaları ve filtreleme katmanları en baştan örülmelidir.</li>
                     </ul>
-                    
+
                     <div class="p-3 my-4 rounded-3" style="background-color: #161b22; border-left: 3px solid #198754;">
                         <span class="fw-bold" style="color: #198754;">💡 Developer Standartları:</span>
-                        <span class="text-white">İster bir forum altyapısı kodlayın, ister düşük seviyeli bir işletim sistemi çekirdeği geliştirin; verinin bellekteki (RAM) yönetimini sıkı tutmak ve yetkisiz bellek adreslerine erişimi (buffer overflow) engellemek siber güvenliğin alfabesidir.</span>
+                        <span class="text-white">İster bir forum altyapısı kodlayın, ister düşük seviyeli bir işletim
+                            sistemi çekirdeği geliştirin; verinin bellekteki (RAM) yönetimini sıkı tutmak ve yetkisiz
+                            bellek adreslerine erişimi (buffer overflow) engellemek siber güvenliğin alfabesidir.</span>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-4">
-                <div class="p-4 rounded-3 sticky-top" style="background-color: #0d1117; border: 1px solid #21262d; top: 20px;">
+                <div class="p-4 rounded-3 sticky-top"
+                    style="background-color: #0d1117; border: 1px solid #21262d; top: 20px;">
                     <h4 class="mb-3" style="color: #bd93f9;">📌 Yol Haritası</h4>
                     <ul class="list-unstyled text-white">
                         <li class="mb-2">🔹 Güvenli Yazılım Geliştirme (SSDLC)</li>
@@ -86,6 +139,9 @@
         </div>
     </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
