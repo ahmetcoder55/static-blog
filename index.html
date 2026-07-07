@@ -17,31 +17,25 @@
 <body>
 
     <!-- Üst Menü -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark py-3">
         <div class="container">
-            <a class="navbar-brand fw-bold text-dark" href="index.html">⚡ DEVELOPER AHMET</a>
+            <a class="navbar-brand fw-bold" href="index.html">⚡ DEVELOPER AHMET</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-secondary" href="index.html">Ana Sayfa</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary" href="about.html">Hakkımızda</a></li>
-                    <li class="nav-item"><a class="nav-link text-white fw-semibold" href="developer/ahmet-kimdir.html">Developer Ahmet</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link text-white active fw-semibold" href="developer/ahmet-kimdir.html">Developer Ahmet</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-dark fw-semibold" href="#" id="blogDropdown"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="blogNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Blog / Günlük
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="blogDropdown">
-                            <li><a class="dropdown-menu-item dropdown-item py-2"
-                                    href="developer/nkatmanlimimari.html">📁
-                                    N-Katmanlı Mimari Temelleri</a></li>
-                            <li><a class="dropdown-menu-item dropdown-item py-2" href="developer/mediatr-cqrs.html">⚡
-                                    MediatR ve
-                                    CQRS Mimarisi</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-menu-item dropdown-item text-muted small" href="/developer/notes.html">Tüm
-                                    Günlükler</a></li>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="blogNav">
+                            <li><a class="dropdown-item py-2" href="developer/nkatmanlimimari.html">📁 N-Katmanlı Mimari Temelleri</a></li>
+                            <li><a class="dropdown-item py-2" href="developer/mediatr-cqrs.html">⚡ MediatR ve CQRS Mimarisi</a></li>
                         </ul>
                     </li>
                 </ul>
