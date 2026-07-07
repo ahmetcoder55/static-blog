@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Ahmet Kimdir? - Kurucuk Software</title>
+    <!-- Bootstrap CSS -->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">    
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #ffffff; color: #212529; }
+        .content-p { font-size: 1.1rem; line-height: 1.7; text-align: justify; }
+        
+        /* Karizmatik Koyu + Neon Mavi Gölgeli Navbar */
+        .navbar { 
+            background-color: #0d1117 !important; 
+            border-bottom: 2px solid #00d2ff; 
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); 
+        }
+        .navbar-brand { color: #00d2ff !important; font-weight: 600; }
+        .nav-link { color: #8b949e !important; transition: 0.3s; }
+        .nav-link:hover, .nav-link.show { color: #00d2ff !important; text-shadow: 0 0 8px rgba(0, 210, 255, 0.6); }
+        
+        /* Açılır Menü Ayarları */
+        .dropdown-menu { background-color: #ffffff; border: 1px solid #dee2e6; }
+        .dropdown-item { color: #212529 !important; }
+        .dropdown-item:hover { background-color: #f8f9fa; color: #00d2ff !important; }
+        
+        /* Hakkımda Sayfası Profil Banner Alanı */
+        .profile-banner {
+            background: linear-gradient(135deg, #0d1117 0%, #11222b 100%);
+            border-bottom: 4px solid #00ffcc;
+            padding: 50px 0;
+            color: #ffffff;
+        }
+
+        .tech-badge {
+            background-color: #f1f3f5;
+            color: #495057;
+            border: 1px solid #dee2e6;
+            padding: 8px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .card-custom { border: 1px solid #dee2e6; background-color: #f8f9fa; }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">⚡ DEVELOPER AHMET</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link text-white active fw-semibold" href="ahmet-kimdir.html">😎 Ahmet Kimdir?</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="blogNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Blog / Günlük
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="blogNav">
+                            <li><a class="dropdown-item py-2" href="../developer/nkatmanlimimari.html">📁 N-Katmanlı Mimari Temelleri</a></li>
+                            <li><a class="dropdown-item py-2" href="mediatr-cqrs.html">⚡ MediatR ve CQRS Mimarisi</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profil Banner Alanı -->
+    <header class="profile-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-9">
+                    <h1 class="display-4 fw-bold" style="color: #00ffcc; text-shadow: 0 0 10px rgba(0, 255, 204, 0.2);">Ben Ahmet,</h1>
+                    <p class="lead text-light-50 mb-0">Sistem mimarisine, güvenliğe ve alt seviye programlamaya odaklanmış bir yazılım geliştiriciyim.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container my-5 flex-grow-1">
+        <div class="row g-4">
+            
+            <div class="col-lg-8">
+                <div class="blog-content">
+                    
+                    <div class="mb-4">
+                        <img src="../img/logo1.png" alt="Developer Ahmet Çalışma Alanı" class="img-fluid rounded shadow-sm" style="max-height: 380px; width: 100%; object-fit: cover;">
+                        <div class="text-muted small mt-2 ps-1">💻 Developer Ahmet - Backend & Systems Developer</div>
+                    </div>
+
+                    <h2 class="text-dark mb-3 fw-bold">Yazılım Serüvenim</h2>
+                    <p class="content-p">
+                        Yazılım dünyasına adım attığımdan beri yaklaşık 3 yıldır profesyonel standartlarda mimari ve sistem tasarımı üzerine aralıksız çalışıyorum. Geliştirdiğim projelerde günü kurtaran çözümler yerine; sürdürülebilir, kurumsal ve siber güvenlik süzgecinden geçmiş sistem mimarileri inşa etmek benim temel vizyonumdur.
+                    </p>
+                    <p class="content-p">
+                        Geliştirme süreçlerimde Linux tabanlı sistemleri (özellikle Ubuntu LTS) ana evrenim olarak kullanıyor, terminalin ve açık kaynağın gücünden faydalanıyorum. Teknolojik gelişmeleri yakından takip ederek projelerimi sürekli güncel ekosistemlere adapte ediyorum.
+                    </p>
+
+                    <hr class="my-4">
+
+                    <h3 class="text-dark mb-3 fw-bold">🚀 Odaklandığım ve Uğraştığım Alanlar</h3>
+                    
+                    <h5 class="text-primary mt-3 fw-semibold">1. Kurumsal Backend Mimarisi (.NET & C#)</h5>
+                    <p class="content-p">
+                        Büyük ölçekli projelerin karmaşasını yönetmek adına .NET 10 ekosistemini derinlemesine kullanıyorum. Tasarımlarımda <strong>N-Tier Architecture (Çok Katmanlı Mimari)</strong>, <strong>Repository Pattern</strong>, <strong>Unit of Work</strong>, <strong>Dependency Injection</strong> ve <strong>MediatR ile CQRS</strong> desenlerini standart olarak uyguluyorum. Veri yönetiminde ise PostgreSQL ve SQLite gibi dikeyde güçlü çözümleri tercih ediyorum.
+                    </p>
+
+                    <h5 class="text-success mt-3 fw-semibold">2. Düşük Seviyeli (Low-Level) Sistem Programlama</h5>
+                    <p class="content-p">
+                        Yazılımın sadece üst katmanıyla değil, donanımla nasıl konuştuğuyla da yakından ilgileniyorum. Assembly ve C dillerini kullanarak bootloader, çekirdek (kernel) geliştirme operasyonları yürütüyor ve CPU instruction set mimarileri üzerine kendi işletim sistemi denemelerimi yapıyorum.
+                    </p>
+
+                    <h5 class="text-danger mt-3 fw-semibold">3. Siber Güvenlik ve Sistem Bütünlüğü</h5>
+                    <p class="content-p">
+                        Yazılan her satır kodun güvenli olması gerektiğine inanıyorum. Projelerimde kullanılan üçüncü parti NuGet paketlerinin bütünlüğünü, dijital imzaları ve sistem süreçlerinin loglarını siber güvenlik standartlarına uygun şekilde analiz edip doğruluyorum.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="p-4 rounded-3 card-custom sticky-top" style="top: 20px;">
+                    <h4 class="text-dark mb-3 fw-bold">🛠️ Tech Stack</h4>
+                    <div class="mb-3">
+                        <span class="tech-badge">C# / .NET 10</span>
+                        <span class="tech-badge">ASP.NET Core Web API / MVC</span>
+                        <span class="tech-badge">C / Assembly</span>
+                        <span class="tech-badge">CQRS & MediatR</span>
+                        <span class="tech-badge">Entity Framework Core</span>
+                        <span class="tech-badge">PostgreSQL / SQLite</span>
+                        <span class="tech-badge">Ubuntu Linux</span>
+                        <span class="tech-badge">Git / GitHub</span>
+                    </div>
+                    <hr>
+                    <h5 class="text-dark font-size: 1rem; fw-bold">🎯 İlgi Alanları</h5>
+                    <ul class="text-secondary small ps-3">
+                        <li>Kurumsal Yazılım Mimarileri</li>
+                        <li>İşletim Sistemi Çekirdek Geliştirme</li>
+                        <li>Siber Güvenlik & Güvenli Kodlama</li>
+                        <li>Açık Kaynak Projeler</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="text-center py-4 bg-light border-top mt-auto">
+        <div class="container">
+            <p class="mb-0 text-secondary">&copy; 2026 Developer Ahmet - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script></body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediatR ve CQRS ile İleri Seviye Mimari - Developer Ahmet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #212529;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .blog-content li {
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Karizmatik Koyu + Neon Mavi Gölgeli Navbar */
+        .navbar {
+            background-color: #0d1117 !important;
+            border-bottom: 2px solid #00d2ff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .navbar-brand {
+            color: #00d2ff !important;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            color: #8b949e !important;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.show {
+            color: #00d2ff !important;
+            text-shadow: 0 0 8px rgba(0, 210, 255, 0.6);
+        }
+
+        /* Açılır Menü Ayarları */
+        .dropdown-menu {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+        }
+
+        .dropdown-item {
+            color: #212529 !important;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #00d2ff !important;
+        }
+
+        /* Yeni Eklenen Modern Banner (Hero) Alanı */
+        .blog-banner {
+            background: linear-gradient(135deg, #0d1117 0%, #11222b 100%);
+            border-bottom: 4px solid #00ffcc;
+            padding: 60px 0;
+            color: #ffffff;
+        }
+
+        /* Kod Blokları İçin Şık Tasarım */
+        pre {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            border-left: 4px solid #00ffcc;
+        }
+
+        .card-custom {
+            border: 1px solid #dee2e6;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">⚡ DEVELOPER AHMET</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">Hakkımızda</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <span class="badge bg-info text-dark mb-2 fw-bold">İLERİ SEVİYE MİMARİ</span>
+                    <h1 class="display-4 fw-bold" style="color: #00ffcc; text-shadow: 0 0 10px rgba(0, 255, 204, 0.2);">
+                        MediatR ve CQRS Pattern Tasarımı</h1>
+                    <p class="lead text-light-50 mb-0">.NET backend projelerinde bağımlılıkları sıfırlayan, monolitik
+                        karmaşayı bitiren kurumsal desenler.</p>
+                </div>
+                <div class="col-md-4 text-end d-none d-md-block">
+                    <div class="p-3 border border-secondary rounded bg-dark-50 text-center text-light small">
+                        🛡️ Kurumsal Yazılım Mimarisi v1.0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container my-5 flex-grow-1">
+        <div class="row g-4">
+
+            <div class="col-lg-8">
+                <div class="blog-content">
+                    <div class="text-muted mb-4 small">📅 7 Temmuz 2026 | ✍️ Yazar: Ahmet | ⏱️ Okuma Süresi: 6 dk</div>
+
+                    <h2 class="text-dark mb-3 fw-bold">Giriş: Monolitik Servislerin Çöküşü</h2>
+                    <p>
+                        Geleneksel N-Tier mimaride iş mantığını yönetmek için servis sınıfları yazarız. Projenin başında
+                        her şey harikadır; ancak sistem büyüdükçe, bir nesneye ait olan servis sınıfı (örneğin
+                        <code>UserService</code>) veri tabanına yazma, loglama, mail atma, cache temizleme ve rapor
+                        çekme gibi onlarca farklı operasyonla dolmaya başlar. Sonuç? Constructor alanında 10-15 tane
+                        farklı arayüzün (Interface) enjekte edildiği, sarsak ve dokunulduğunda çöken "Fat Service"
+                        dediğimiz devasa yapılar ortaya çıkar.
+                    </p>
+                    <p>
+                        İşte kurumsal mimarilerde bu bağımlılık şişmesini önlemek, kodları parçalayarak mikro servis
+                        mantığına yaklaştırmak için iki efsanevi silahı bir arada kullanıyoruz: <strong>CQRS</strong> ve
+                        <strong>MediatR</strong>.
+                    </p>
+
+                    <hr class="my-4">
+
+                    <h3 class="text-dark mb-3 fw-semibold">1. CQRS Nedir? (Okuma ve Yazmayı Ayırın)</h3>
+                    <p>
+                        <strong>CQRS (Command Query Responsibility Segregation)</strong>, veri tabanındaki okuma (Read)
+                        işlemleri ile yazma/değiştirme (Write) işlemlerinin sorumluluklarını kodsal olarak tamamen
+                        ayırmamız gerektiğini söyleyen bir mimari desendir.
+                    </p>
+                    <ul>
+                        <li class="mb-2"><strong>Commands (Komutlar):</strong> Sistemin durumunu değiştiren
+                            aksiyonlardır. Nesne ekleme, silme, güncelleme gibi süreçleri kapsar. Geriye veri dönmek
+                            zorunda değildir, sadece işlemin başarılı olup olmadığını bildirebilir.</li>
+                        <li class="mb-2"><strong>Queries (Sorgular):</strong> Sistemden sadece veri talep eden
+                            operasyonlardır. Veri tabanında asla bir satırı bile değiştirmezler. Sadece listeleme,
+                            filtreleme veya detay getirme işi yaparlar.</li>
+                    </ul>
+                    <p>
+                        Bu ayrım sayesinde, yarın bir gün uygulamanızın trafiği çok arttığında, yazma veritabanı ile
+                        okuma veritabanını (Read-Write Replica) mimariyi hiç bozmadan kolayca ayırabilirsiniz.
+                    </p>
+
+                    <hr class="my-4">
+
+                    <h3 class="text-dark mb-3 fw-semibold">2. MediatR Kütüphanesi Neden Şart?</h3>
+                    <p>
+                        CQRS uyguladığımızda elimizde onlarca Command ve Query sınıfı olur. Peki Sunum Katmanı
+                        (Controller) bu komut ve sorguları doğrudan nasıl tetikleyecek? Eğer her birini tek tek enjekte
+                        edersek Controller sınıflarımız bu sefer bağımlılıktan patlar.
+                    </p>
+                    <p>
+                        <strong>MediatR</strong>, tam bu noktada devreye giren merkezi bir mesaj dağıtıcıdır (Mediator
+                        Pattern). Controller artık hangi iş kuralının nerede çalışacağını bilmez. Sadece MediatR'a bir
+                        istek fırlatır ve "Bu isteği arka planda kim işliyorsa ona ilet" der.
+                    </p>
+
+                    <h4 class="text-secondary mt-4 mb-2 fw-bold">Controller Tarafındaki Kod Temizliği:</h4>
+                    <p>MediatR sayesinde API Controller'larımız sadece tek bir bağımlılığa sahip olur ve jilet gibi
+                        temiz görünür:</p>
+
+                    <pre>[ApiController]
+[Route("api/[controller]")]
+public class ProductsController : ControllerBase
+{
+    private readonly IMediator _mediator;
+
+    public ProductsController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+
+    [HttpPost]
+    public async Task&lt;IActionResult&gt; Create(CreateProductCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+}</pre>
+
+                    <hr class="my-4">
+
+                    <h3 class="text-dark mb-3 fw-semibold">3. Kurumsal Kazanımlar ve Siber Güvenlik Bakışı</h3>
+                    <p>
+                        Bu iki yapıyı Unit of Work ve Repository desenleriyle birleştirdiğinizde sistem şu avantajları
+                        kazanır:
+                    </p>
+                    <div class="p-3 bg-light rounded border-start border-success mb-3">
+                        <strong>🛡️ Tek Sorumluluk (Solid - SRP):</strong> Her bir Command veya Query için ayrı bir
+                        <code>Handler</code> sınıfı yazılır. Bir kodu değiştirmek diğer hiçbir operasyonu etkilemez.
+                        Siber güvenlik testlerinde (Penetrasyon testlerinde) bir handler'da bulunan zafiyet kolayca
+                        izole edilebilir.
+                    </div>
+                    <div class="p-3 bg-light rounded border-start border-primary mb-3">
+                        <strong>⚡ Gevşek Bağlılık (Loose Coupling):</strong> Katmanlar birbirinin iç işleyişine tamamen
+                        yabancıdır. Bağımlılıklar minimumda olduğu için projenin test edilebilirliği (Unit Test) zirveye
+                        çıkar.
+                    </div>
+
+                    <h2 class="text-dark mt-5 mb-3 fw-bold">Sonuç</h2>
+                    <p>
+                        Küçük ve orta ölçekli projelerde bu yapı biraz fazla kod yazdırıyor gibi görünebilir
+                        (Overengineering). Ancak .NET 10 gibi güçlü backend platformlarında kurumsal, güvenli,
+                        sürdürülebilir ve mikro servislere göz kırpan yapılar kurmak istiyorsanız, MediatR ve CQRS
+                        ikilisi kesinlikle kaçınılmaz bir standarttır.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="p-4 rounded-3 card-custom sticky-top" style="top: 20px;">
+                    <h4 class="text-dark mb-3 fw-bold">📌 Makale Bilgileri</h4>
+                    <p class="text-secondary small mb-2"><strong>Kategori:</strong> .NET Backend Mimari</p>
+                    <p class="text-secondary small mb-2"><strong>Sürüm:</strong> .NET 10 (Preview)</p>
+                    <p class="text-secondary small mb-3"><strong>Zorluk Seviyesi:</strong> İleri Seviye</p>
+                    <hr>
+                    <p class="text-muted small">Bu makaledeki mimari pratikler, büyük ölçekli ve yüksek trafikli
+                        sistemlerin tasarım standartları göz önüne alınarak hazırlanmıştır.</p>
+                    <hr>
+                    <a href="../index.html" class="btn btn-dark w-100">⬅️ Ana Sayfaya Dön</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="text-center py-4 bg-light border-top mt-auto">
+        <div class="container">
+            <p class="mb-0 text-secondary">&copy; 2026 Developer Ahmet - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
