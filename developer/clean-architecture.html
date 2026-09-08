@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Architecture ile Sürdürülebilir Yazılım Mimarisi - Developer Ahmet</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #ffffff; color: #212529; }
+        .blog-content p { font-size: 1.1rem; line-height: 1.8; text-align: justify; }
+        .blog-content li { font-size: 1.05rem; line-height: 1.7; }
+        
+        /* Koyu + Neon Mavi Gölgeli Navbar */
+        .navbar { 
+            background-color: #0d1117 !important; 
+            border-bottom: 2px solid #00d2ff; 
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); 
+        }
+        .navbar-brand { color: #00d2ff !important; font-weight: 600; }
+        .nav-link { color: #8b949e !important; transition: 0.3s; }
+        .nav-link:hover, .nav-link.show { color: #00d2ff !important; text-shadow: 0 0 8px rgba(0, 210, 255, 0.6); }
+        
+        /* Açılır Menü Ayarları */
+        .dropdown-menu { background-color: #ffffff; border: 1px solid #dee2e6; }
+        .dropdown-item { color: #212529 !important; }
+        .dropdown-item:hover { background-color: #f8f9fa; color: #00d2ff !important; }
+        
+        /* Geniş ve Modern Banner (Hero) Alanı - Cyan/Turkuaz Detaylı */
+        .blog-banner {
+            background: linear-gradient(135deg, #0d1117 0%, #0f2b3c 100%);
+            border-bottom: 4px solid #00e5ff;
+            padding: 60px 0;
+            color: #ffffff;
+        }
+        
+        /* C# Kod Blokları İçin Tasarım */
+        pre {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 18px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            border-left: 4px solid #00e5ff;
+        }
+
+        .card-custom { border: 1px solid #dee2e6; background-color: #f8f9fa; }
+        
+        /* Katman Kartları */
+        .layer-box {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+        .layer-box:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar (Mobil Uyumlu Hamburger Menülü) -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">⚡ DEVELOPER AHMET</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ahmet-kimdir.html">😎 Ahmet Kimdir?</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white fw-semibold" href="#" id="blogNav" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Blog / Günlük
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="blogNav">
+                            <li><a class="dropdown-item py-2" href="nkatmanlimimari.html">📁 N-Katmanlı Mimari Temelleri</a></li>
+                            <li><a class="dropdown-item py-2" href="mediatr-cqrs.html">⚡ MediatR ve CQRS Mimarisi</a></li>
+                            <li><a class="dropdown-item py-2" href="generic-repository.html">💎 Generic Repository Pattern</a></li>
+                            <li><a class="dropdown-item py-2 fw-bold active" href="clean-architecture.html">🏛️ Clean Architecture Mimarisi</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Geniş Banner Alanı -->
+    <header class="blog-banner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <span class="badge bg-info text-dark mb-2 fw-bold">KURUMSAL SİSTEM MİMARİSİ</span>
+                    <h1 class="display-4 fw-bold" style="color: #00e5ff; text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);">Clean Architecture</h1>
+                    <p class="lead text-light-50 mb-0">Veri tabanı, UI ve dış bağımlılıklardan tamamen soyutlanmış, test edilebilir ve sürdürülebilir sistemler inşa etmek.</p>
+                </div>
+                <div class="col-md-4 text-end d-none d-md-block">
+                    <div class="p-3 border border-info rounded bg-dark-50 text-center text-light small">
+                        🛡️ Uncle Bob Standardı & Domain-Centric
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog İçerik Alanı (Light Tema) -->
+    <div class="container my-5 flex-grow-1">
+        <div class="row g-4">
+            
+            <!-- Sol Taraf: Detaylı Makale Gövdesi -->
+            <div class="col-lg-8">
+                <div class="blog-content">
+                    <div class="text-muted mb-4 small">📅 8 Eylül 2026 | ✍️ Yazar: Ahmet | ⏱️ Okuma Süresi: 12 dk</div>
+
+                    <h2 class="text-dark mb-3 fw-bold">Giriş: Yazılımlar Neden Çürür (Software Rot)?</h2>
+                    <p>
+                        Bir proje ilk başladığında her şey harikadır. Kodlar hızlıca yazılır, veritabanı bağlantıları doğrudan controller veya servis sınıflarına gömülür ve ürün yayına alınır. Ancak proje büyüdükçe, iş kuralları (Business Rules) geliştikçe ve müşteri yeni isteklerle geldikçe sistem spagetti koda dönüşür. Küçük bir değişiklik, projenin hiç alakası olmayan bir yerini patlatmaya başlar.
+                    </p>
+                    <p>
+                        Robert C. Martin (Uncle Bob) tarafından ortaya konan <strong>Clean Architecture (Temiz Mimari)</strong>, bu çürümeyi engellemek için geliştirilmiştir. Temel parolası şudur: <em>"Yazılım mimariniz, kullandığınız veritabanı, web çatısı (framework) veya kullanıcı arayüzü (UI) hakkında hiçbir fikir sahibi olmamalıdır."</em>
+                    </p>
+
+                    <hr class="my-4">
+
+                    <h3 class="text-dark mb-3 fw-bold">1. Altın Kural: Bağımlılık Kuralı (The Dependency Rule)</h3>
+                    <p>
+                        Clean Architecture mimarisinin kalbinde tek bir kırılmaz kural yatar: <strong>Koddaki bağımlılıklar sadece ve sadece içe doğru yönelebilir.</strong> 
+                    </p>
+                    <p>
+                        Dış katmanlar iç katmanları tanıyabilir, ancak iç katmanlar dış katmanlardaki hiçbir şeyden haber dar olamaz. Yani iş mantığınızın (Domain), kullandığınız veritabanının Entity Framework mu yoksa PostgreSQL mi olduğundan ya da projenin React mi yoksa ASP.NET Core MVC mi kullandığından haberi yoktur.
+                    </p>
+
+                    <div class="p-3 bg-light rounded border-start border-info my-3">
+                        <strong>📌 Unutmayın:</strong> Veri tabanı bir detaydır. UI bir detaydır. Dış servisler (Sms, Mail, Ödeme Sistemleri) birer detaydır. Temiz bir mimaride detaylar iş kurallarına bağımlı olur, iş kuralları detaylara değil!
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h3 class="text-dark mb-3 fw-bold">2. Clean Architecture Katmanları</h3>
+                    <p>
+                        Mimari, iç içe geçmiş halkalar gibi düşünülür. Dışarıdan içeriye doğru 4 ana katmandan oluşur:
+                    </p>
+
+                    <div class="layer-box bg-light border-start border-4 border-danger">
+                        <h4 class="fw-bold text-danger">1. Domain Layer (En İç Katman - Çekirdek)</h4>
+                        <p class="mb-2">Projenin kalbidir. Hiçbir dış kütüphaneye veya framework'e bağımlılığı yoktur (Pure C#). Şunları barındırır:</p>
+                        <ul>
+                            <li><strong>Entities:</strong> İş nesneleri ve veritabanı tablolarının karşılıkları.</li>
+                            <li><strong>Value Objects:</strong> Kendi kimliği olmayan ama değer ifade eden yapılar (Örn: Adres, Para Birimi).</li>
+                            <li><strong>Enums & Constants:</strong> Proje genelinde kullanılan sabitler.</li>
+                            <li><strong>Domain Events:</strong> İş alanında gerçekleşen önemli olaylar.</li>
+                        </ul>
+                    </div>
+
+                    <div class="layer-box bg-light border-start border-4 border-primary">
+                        <h4 class="fw-bold text-primary">2. Application Layer (Uygulama Mantığı)</h4>
+                        <p class="mb-2">Sistemin kullanım senaryolarını (Use Cases) barındırır. Domain katmanını kullanır ancak UI veya DB'den habersizdir:</p>
+                        <ul>
+                            <li><strong>Interfaces:</strong> Veritabanı (Repository) ve Dış Servis (Email, SMS) arayüzleri.</li>
+                            <li><strong>CQRS (Commands & Queries):</strong> MediatR ile işlenen komut ve sorgu işleyicileri.</li>
+                            <li><strong>DTOs & Mapping:</strong> Veri transfer nesneleri ve AutoMapper/Mapster profilleri.</li>
+                            <li><strong>Validation Rules:</strong> FluentValidation ile girdi doğrulama kuralları.</li>
+                        </ul>
+                    </div>
+
+                    <div class="layer-box bg-light border-start border-4 border-warning">
+                        <h4 class="fw-bold text-warning">3. Infrastructure Layer (Altyapı Katmanı)</h4>
+                        <p class="mb-2">Application katmanında tanımlanan arayüzlerin (Interface) somutlaştırıldığı (Implementation) yerdir:</p>
+                        <ul>
+                            <li><strong>Persistence (Database):</strong> EF Core DbContext, Migration'lar ve Repository sınıfları.</li>
+                            <li><strong>External Services:</strong> JWT Token üretimi, Mail gönderme servisleri, PayTR/Stripe entegrasyonları.</li>
+                            <li><strong>System Clock & Logging:</strong> Dosya sistemine erişim ve loglama mekanizmaları.</li>
+                        </ul>
+                    </div>
+
+                    <div class="layer-box bg-light border-start border-4 border-success">
+                        <h4 class="fw-bold text-success">4. Presentation / Web API Layer (En Dış Katman)</h4>
+                        <p class="mb-2">Kullanıcının veya dış sistemlerin projeyle temas ettiği noktadır:</p>
+                        <ul>
+                            <li><strong>Controllers / Minimal APIs:</strong> İstekleri karşılar ve MediatR aracılığıyla Application katmanına iletir.</li>
+                            <li><strong>Middlewares:</strong> Küresel hata yönetimi (Global Exception Handling), Rate Limiting.</li>
+                            <li><strong>Configuration:</strong> <code>Program.cs</code>, Dependency Injection konfigürasyonları.</li>
+                        </ul>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h3 class="text-dark mb-3 fw-bold">3. Kod Üzerinde Görelim: Bir Ürün Ekleme Akışı</h3>
+                    <p>
+                        Bir ürünü sisteme kaydetme senaryosunu Clean Architecture ilkelerine göre nasıl kodladığımıza adım adım bakalım:
+                    </p>
+
+                    <h5 class="text-danger fw-bold mt-4">Adım A: Domain Katmanında Entity Tasarımı</h5>
+<pre>namespace CleanArch.Domain.Entities;
+
+public class Product
+{
+    public int Id { get; private set; }
+    public string Name { get; private set; } = string.Empty;
+    public decimal Price { get; private set; }
+
+    // Domain kuralı: Ürün fiyatı sıfırdan küçük olamaz
+    public Product(string name, decimal price)
+    {
+        if (price &lt;= 0)
+            throw new ArgumentException("Ürün fiyatı 0'dan büyük olmalıdır.");
+
+        Name = name;
+        Price = price;
+    }
+}</pre>
+
+                    <h5 class="text-primary fw-bold mt-4">Adım B: Application Katmanında Interface ve CQRS Command</h5>
+<pre>namespace CleanArch.Application.Abstracts;
+
+// Application katmanı veritabanının EF Core olduğunu bilmez, sadece interface tanımlar
+public interface IProductRepository
+{
+    Task AddAsync(Product product, CancellationToken cancellationToken);
+    Task&lt;Product?&gt; GetByIdAsync(int id, CancellationToken cancellationToken);
+}
+
+// CQRS Command Yapısı (MediatR)
+public record CreateProductCommand(string Name, decimal Price) : IRequest&lt;int&gt;;
+
+public class CreateProductCommandHandler : IRequestHandler&lt;CreateProductCommand, int&gt;
+{
+    private readonly IProductRepository _repository;
+
+    public CreateProductCommandHandler(IProductRepository repository)
+    {
+        _repository = repository;
+    }
+
+    public async Task&lt;int&gt; Handle(CreateProductCommand request, CancellationToken cancellationToken)
+    {
+        var product = new Product(request.Name, request.Price);
+        await _repository.AddAsync(product, cancellationToken);
+        return product.Id;
+    }
+}</pre>
+
+                    <h5 class="text-warning fw-bold mt-4">Adım C: Infrastructure Katmanında EF Core İle Somutlaştırma</h5>
+<pre>namespace CleanArch.Infrastructure.Persistence.Repositories;
+
+public class ProductRepository : IProductRepository
+{
+    private readonly ApplicationDbContext _context;
+
+    public ProductRepository(ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task AddAsync(Product product, CancellationToken cancellationToken)
+    {
+        await _context.Products.AddAsync(product, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task&lt;Product?&gt; GetByIdAsync(int id, CancellationToken cancellationToken)
+    {
+        return await _context.Products.FindAsync(new object[] { id }, cancellationToken);
+    }
+}</pre>
+
+                    <h5 class="text-success fw-bold mt-4">Adım D: Presentation Katmanında Web API Controller</h5>
+<pre>[ApiController]
+[Route("api/[controller]")]
+public class ProductsController : ControllerBase
+{
+    private readonly IMediator _mediator;
+
+    public ProductsController(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+
+    [HttpPost]
+    public async Task&lt;IActionResult&gt; Create([FromBody] CreateProductCommand command)
+    {
+        var productId = await _mediator.Send(command);
+        return CreatedAtAction(nameof(GetById), new { id = productId }, productId);
+    }
+}</pre>
+
+                    <hr class="my-4">
+
+                    <h3 class="text-dark mb-3 fw-bold">4. Siber Güvenlik ve Test Edilebilirlik Açısından Avantajları</h3>
+                    <p>
+                        Clean Architecture sadece mimari bir şov değildir. Yazılıma çok somut iki devasa güç kazandırır:
+                    </p>
+                    <div class="row g-3 my-2">
+                        <div class="col-md-6">
+                            <div class="p-3 card-custom rounded h-100 border-start border-4 border-info">
+                                <h5 class="fw-bold text-dark">🧪 Kolay Unit Test (Moq)</h5>
+                                <p class="small text-secondary mb-0">
+                                    Application ve Domain katmanları dış dünyadan tamamen izole olduğu için, veritabanına bağlanmadan sahte verilerle (Mocking) milisaniyeler içinde binlerce Unit Test çalıştırabilirsiniz.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 card-custom rounded h-100 border-start border-4 border-danger">
+                                <h5 class="fw-bold text-dark">🛡️ İzole Güvenlik Duvarı</h5>
+                                <p class="small text-secondary mb-0">
+                                    API katmanına gelebilecek bir DDoS veya SQL Injection atağı, iş kurallarınızın bulunduğu çekirdeğe ulaşamaz. Güvenlik katmanları (Validation, Auth) altyapıdan bağımsız taranabilir.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="text-dark mt-5 mb-3 fw-bold">Sonuç</h2>
+                    <p>
+                        Clean Architecture küçük projeler için ilk başta "over-engineering" (gereksiz fazla mühendislik) gibi görünebilir. Ancak orta ve büyük ölçekli, zamanla büyüyecek kurumsal projelerde yazılımın ömrünü uzatan, geliştirici maliyetini düşüren ve spagetti kod oluşumunu kesin olarak engelleyen en güçlü mimari çözümdür.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sağ Taraf: Detay Paneli (Sidebar) -->
+            <div class="col-lg-4">
+                <div class="p-4 rounded-3 card-custom sticky-top" style="top: 20px;">
+                    <h4 class="text-dark mb-3 fw-bold">📌 Mimari Özeti</h4>
+                    <p class="text-secondary small mb-2"><strong>Konsept:</strong> Domain-Centric Design</p>
+                    <p class="text-secondary small mb-2"><strong>Yazar / Kuramcı:</strong> Robert C. Martin (Uncle Bob)</p>
+                    <p class="text-secondary small mb-2"><strong>Kullanılan Bilesenler:</strong> MediatR, CQRS, EF Core, FluentValidation</p>
+                    <p class="text-secondary small mb-3"><strong>Proje Türü:</strong> Kurumsal Backend APIs</p>
+                    <hr>
+                    <div class="small text-muted mb-3">
+                        <strong>Mimari Katman Sıralaması:</strong>
+                        <ol class="ps-3 mt-1 mb-0">
+                            <li>Domain (Çekirdek)</li>
+                            <li>Application (İş Mantığı)</li>
+                            <li>Infrastructure (Veritabanı/Servis)</li>
+                            <li>Presentation (API / UI)</li>
+                        </ol>
+                    </div>
+                    <hr>
+                    <a href="../index.html" class="btn btn-dark w-100">⬅️ Ana Sayfaya Dön</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-light border-top mt-auto">
+        <div class="container">
+            <p class="mb-0 text-secondary">&copy; 2026 Developer Ahmet - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (Açılır Menü ve Mobil Çizgiler İçin Şart) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
